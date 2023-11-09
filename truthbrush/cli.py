@@ -85,16 +85,16 @@ def ads():
          print(json.dumps(follower))
 
 
-@cli.command()
-@click.argument("handle")
-@click.option(
+ @cli.command()
+ @click.argument("handle")
+ @click.option(
     "--maximum", help="the maximum number of followed users to pull", type=int
 )
-@click.option(
-    "--resume",
-    help="the `max_id` cursor to resume from, if necessary (pull this from logs to resume a failed/stalled export)",
-    type=str,
-)
+ @click.option(
+     "--resume",
+     help="the `max_id` cursor to resume from, if necessary (pull this from logs to resume a failed/stalled export)",
+     type=str,
+ )
 def following(handle: str, maximum: int = None, resume: str = None):
     """Pull users a given user follows."""
 
@@ -102,19 +102,19 @@ def following(handle: str, maximum: int = None, resume: str = None):
         print(json.dumps(followed))
 
 
-@cli.command()
-@click.argument("username")
-@click.option(
-    "--replies/--no-replies",
-    default=False,
-    help="Include replies when pulling posts (defaults to no replies)",
-)
-@click.option(
-    "--created-after",
-    default=None,
-    help="Only pull posts created on or after the specified datetime, e.g. 2021-10-02 or 2011-11-04T00:05:23+04:00 (defaults to none). If a timezone is not specified, UTC is assumed.",
-    type=datetime.datetime.fromisoformat,
-)
+ @cli.command()
+ @click.argument("username")
+ @click.option(
+     "--replies/--no-replies",
+     default=False,
+     help="Include replies when pulling posts (defaults to no replies)",
+ )
+ @click.option(
+     "--created-after",
+     default=None,
+     help="Only pull posts created on or after the specified datetime, e.g. 2021-10-02 or 2011-11-04T00:05:23+04:00 (defaults to none). If a timezone is not specified, UTC is assumed.",
+     type=datetime.datetime.fromisoformat,
+ )
 def statuses(username: str, replies: bool = False, created_after: date = None):
     """Pull a user's statuses"""
 
