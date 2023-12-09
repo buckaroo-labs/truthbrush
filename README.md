@@ -1,10 +1,12 @@
 # truthbrush
-Truthbrush is an API client for Truth Social. Truthbrush is built and maintained by the [Stanford Internet Observatory](https://io.stanford.edu).
+Truthbrush is an API client for Truth Social. Truthbrush is built and maintained by the [Stanford Internet Observatory](https://io.stanford.edu). This fork is modified to enable commented-out functionality regarding following/followers.
 
 Currently, this tool can:
 
 * Search for users, statuses, or hashtags
 * Pull a user's statuses
+* Pull a user's followed accounts
+* Pull a user's following accounts
 * Pull the list of "People to Follow" or suggested users
 * Pull "trending" hashtags
 * Pull "trending" Truth posts
@@ -15,7 +17,7 @@ Truthbrush is designed for academic research, open source intelligence gathering
 
 ## Installation
 
-Truthbrush is not yet available on PyPI. To install it, run `pip install git+https://github.com/stanfordio/truthbrush.git`, or clone the repository and run `pip3 install .`. Provided your `pip` is setup correctly, this will make `truthbrush` available both as a command and as a Python package. **Note that Truthbrush requires Python 3.9 or higher.**
+Truthbrush is not yet available on PyPI. To install it, run `pip install git+https://github.com/buckaroo-labs/truthbrush.git`, or clone the repository and run `pip3 install .`. Provided your `pip` is setup correctly, this will make `truthbrush` available both as a command and as a Python package. **Note that Truthbrush requires Python 3.9 or higher.**
 
 After installation, you will need to set your Truth Social username and password as environmental variables.
 
@@ -48,6 +50,18 @@ Commands:
 
 ```bash
 truthbrush search --searchtype [accounts|statuses|hashtags] QUERY
+```
+
+**Pull all followers for a user**
+
+```bash
+truthbrush followers HANDLE
+```
+
+**Pull all following for a user**
+
+```bash
+truthbrush following HANDLE
 ```
 
 **Pull all statuses (posts) from a user**
